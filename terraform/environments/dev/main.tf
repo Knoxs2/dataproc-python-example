@@ -23,3 +23,10 @@ resource "google_dataproc_cluster" "spark_cluster" {
         }
     }
 }
+
+module "vpc-network" {
+    source      = "./modules/gcp/network/"
+    name        = "machine-learning-network"
+    subnet-name = "machine-learning-private-network"
+    region      = var.region
+}
